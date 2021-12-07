@@ -4,9 +4,21 @@ import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import * as Sharing from 'expo-sharing';
 import logo from './assets/logo.png';
+import RNShake from 'react-native-shake';
 
 export default function App() {
   const [selectedImage, setSelectedImage] = React.useState(null);
+
+  React.useEffect(() => {
+    const subscription = RNShake.addListener(() => {
+      //my code here
+    })
+
+    return() => {
+      //my code here
+      subscription.remove()
+    }
+  }, [])
   
   let openImagePickerAsync = async () => {
     

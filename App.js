@@ -5,16 +5,34 @@ import * as ImagePicker from 'expo-image-picker';
 import logo from './assets/logo.png';
 
 export default function App() {
+  const [selectedImage, setSelectedImage] = React.useState(null);
   let openImagePickerAsync = async () => {
     let permissionResult = await ImagePicker.requestMediaLibraryPermissionsAsync();
 
-    if(permissionResult.granted === false) {
+    if (permissionResult.granted === false) {
       alert("Permission to access photo gallery is required!");
       return;
     }
     let pickerResult = await ImagePicker.launchImageLibraryAsync();
-    console.log(pickerResult);
+    console.log("Here is the picker result", pickerResult);
+
+    if (pickerResult.cancelled === true) {
+      return;
+    }
+    setSelectedImage({ localUri:  pickerResult.uri });
+  };
+
+  if (selectedImage !== null) {
+    return (
+      <View style={styles.container}>
+        <Image
+        source={{ uri: selectedImage.localUri }}
+        style={styles.thumbnail}
+        />
+      </View>
+    );
   }
+
   return (
     <View style={styles.container}>
       <Image source ={logo} style={{width: 305, height: 159}} />
@@ -56,4 +74,9 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: '#fff',
   }, 
+  thumbnail: {
+    width: 300,
+    height: 300,
+    resizeMode: "contain"
+  },
 });

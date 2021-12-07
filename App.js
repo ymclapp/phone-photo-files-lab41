@@ -9,16 +9,17 @@ import RNShake from 'react-native-shake';
 export default function App() {
   const [selectedImage, setSelectedImage] = React.useState(null);
 
-  React.useEffect(() => {
-    const subscription = RNShake.addListener(() => {
+  //React.useEffect(() => {
+ //   const subscription = RNShake.addListener(() => {
       //my code here
-    })
+  //  })
 
-    return() => {
-      //my code here
+ //   return() => {
+  //    //my code here
       subscription.remove()
-    }
-  }, [])
+   // }
+ // }, [])
+}
   
   let openImagePickerAsync = async () => {
     

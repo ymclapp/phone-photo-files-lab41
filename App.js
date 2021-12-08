@@ -45,12 +45,20 @@ export default function App() {
           source={{ uri: selectedImage.localUri }}
           style={styles.thumbnail}
         />
-        <TouchableOpacity onPress={openShareDialogAsync} style={styles.button}>
-          <Text style={styles.buttonText}>Share this photo </Text>
+        <Text>
+          {"\n"}
+        </Text>
+        <TouchableOpacity onPress={openShareDialogAsync} style={styles.button1}>
+          <Text style={styles.buttonText1}>Save this book to your shelf </Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={openImagePickerAsync} style={styles.button}>
-            <Text style={styles.buttonText} >Cancel</Text>
-          </TouchableOpacity>
+        <Text>
+          {"\n"}
+          Click Cancel to pick again
+          {"\n"}
+        </Text>
+        <TouchableOpacity onPress={openImagePickerAsync} style={styles.button2}>
+          <Text style={styles.buttonText2} >Cancel</Text>
+        </TouchableOpacity>
       </View>
     );
   }
@@ -58,18 +66,20 @@ export default function App() {
   return (
     <AppearanceProvider>
       <ThemeProvider>
-      <Screen>
-        <View style={styles.container}>
-          <Image source={logo} style={{ width: 305, height: 159 }} />
-          <Text style={styles.instructions}>
-            Click the button below to save the image to a file location
-          </Text>
-
-          <TouchableOpacity onPress={openImagePickerAsync} style={styles.button}>
-            <Text style={styles.buttonText} > Pick a Photo</Text>
-          </TouchableOpacity>
-          <StatusBar style="auto" />
-        </View>
+        <Screen>
+          <View style={styles.container}>
+            <Image source={logo} style={{ width: 305, height: 159 }} />
+            <Text style={styles.instructions}>
+              {"\n"}
+              Click the button below to save the image to a file location
+              {"\n"}
+            </Text>
+            <Text></Text>
+            <TouchableOpacity onPress={openImagePickerAsync} style={styles.button3}>
+              <Text style={styles.buttonText3} > Pick a Photo </Text>
+            </TouchableOpacity>
+            <StatusBar style="auto" />
+          </View>
 
           <Switch />
           <Message />
@@ -96,18 +106,45 @@ const styles = StyleSheet.create({
     fontSize: 18,
     marginHorizontal: 15,
   },
-  button: {
+  button1: {
+    backgroundColor: "blue",
+    padding: 20,
+    borderRadius: 5,
+    borderColor: "red",
+    borderWidth: 3,
+  },
+  button2: {
+    backgroundColor: "grey",
+    padding: 20,
+    borderRadius: 5,
+    borderColor: "orange",
+    borderWidth: 3,
+  },
+  button3: {
     backgroundColor: "orange",
     padding: 20,
     borderRadius: 5,
+    borderColor: "black",
+    borderWidth: 3,
   },
-  buttonText: {
+  buttonText1: {
     fontSize: 20,
     color: '#fff',
+  },
+  buttonText2: {
+    fontSize: 20,
+    color: '#fff',
+  },
+  buttonText3: {
+    fontSize: 20,
+    color: 'black',
   },
   thumbnail: {
     width: 300,
     height: 300,
-    resizeMode: "contain"
+    resizeMode: "contain",
+    borderColor: "grey",
+    borderWidth: 5,
+    backgroundColor: "black",
   },
 });

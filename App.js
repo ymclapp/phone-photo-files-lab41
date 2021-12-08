@@ -48,6 +48,9 @@ export default function App() {
         <TouchableOpacity onPress={openShareDialogAsync} style={styles.button}>
           <Text style={styles.buttonText}>Share this photo </Text>
         </TouchableOpacity>
+        <TouchableOpacity onPress={openImagePickerAsync} style={styles.button}>
+            <Text style={styles.buttonText} >Cancel</Text>
+          </TouchableOpacity>
       </View>
     );
   }

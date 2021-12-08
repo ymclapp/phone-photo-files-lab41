@@ -11,16 +11,23 @@
   },
   "dependencies": {
     "expo": "~43.0.2",
+    "expo-image-picker": "~11.0.3",
+    "expo-sharing": "~10.0.3",
     "expo-status-bar": "~1.1.0",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-native": "0.64.3",
-    "react-native-web": "0.17.1",
-    "expo-image-picker": "~11.0.3",
-    "expo-sharing": "~10.0.3"
+    "react-native-appearance": "~0.3.3",
+    "react-native-shake": "^5.1.1",
+    "react-native-web": "0.17.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.9"
+    "@babel/core": "^7.12.9",
+    "@types/jest": "^27.0.3",
+    "@types/react": "^17.0.37",
+    "@types/react-native": "^0.66.8",
+    "@types/react-test-renderer": "^17.0.1",
+    "typescript": "^4.5.2"
   },
   "private": true
 }
